@@ -56,3 +56,19 @@ jobs:
       
     - name: Compile assets
       run: npm run build
+      
+      
+    - name: Run Cypress tests
+      uses: cypress-io/github-action@v5.3.0
+      with:
+        wait-on: http://localhost
+        wait-on-timeout: 180
+        start: npm start
+        config-file: cypress.config.json
+    
+    - name: Upload artifacts
+      uses: actions/upload-artifact@master
+      if: failure()
+      with:
+        name: Logs
+        path: ./storage/logs
