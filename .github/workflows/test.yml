@@ -50,3 +50,13 @@ jobs:
  
     - name: Run Test suite
       run: php artisan test
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+        
+    - name: Install and Run NPM Dependencies
+      run: |
+        npm install
+        npm run dev
