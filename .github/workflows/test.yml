@@ -10,40 +10,40 @@ on:
 jobs:
   tests:
     name: Run tests
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
 
-        - name: Cache composer dependencies
-          uses: actions/cache@v2
-          with:
-            path: vendor
-            key: composer-${{ hashFiles('**/composer.lock') }}
-            restore-keys: |
-              composer-
+      - name: Cache composer dependencies
+        uses: actions/cache@v2
+        with:
+          path: vendor
+          key: composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            composer-
 
-        - name: Install PHP
-          uses: shivammathur/setup-php@2
-          with:
-            php-version: 8.1
+      - name: Install PHP
+        uses: shivammathur/setup-php@2
+        with:
+          php-version: 8.1
 
-        - name: Copy .env file
+      - name: Copy .env file
         run: |
           cp .env.example .env
 
-        - name: Generate key
-          run: |
-            php artisan key:generate
+      - name: Generate key
+        run: |
+          php artisan key:generate
 
-        - name: Run Composer
+      - name: Run Composer
         run: |
           composer install --no-interaction
 
-        -name: Run tests suite
-          run: |
-            php artisan test
-          env:
-            DB_DATABASE: test
+      - name: Run tests suite
+        run: |
+          php artisan test
+        env:
+          DB_DATABASE: test
 
   services:
     mysql:
