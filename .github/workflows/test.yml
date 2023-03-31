@@ -56,3 +56,5 @@ jobs:
       
     - name: Compile assets
       run: npm run dev
+      env: |
+        LARAVEL_BYPASS_ENV_CHECK=1
