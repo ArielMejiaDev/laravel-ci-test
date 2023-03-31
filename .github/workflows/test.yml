@@ -63,8 +63,7 @@ jobs:
       with:
         wait-on: http://localhost
         wait-on-timeout: 180
-        start: cypress run
-        config-file: cypress.config.json
+        start: npx cypress run
     
     - name: Upload artifacts
       uses: actions/upload-artifact@master
