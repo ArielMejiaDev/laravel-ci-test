@@ -51,10 +51,11 @@ jobs:
     - name: Run Test suite
       run: php artisan test
       
-    - name: Setup Node.js
-      uses: actions/setup-node@v1
+    - name: 'Setup node v16'
+      uses: actions/setup-node@v3
       with:
-        node-version: '12.x'
+        node-version: 16
+        cache: 'npm'
         
     - name: Install and Run NPM Dependencies
       run: |
