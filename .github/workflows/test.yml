@@ -42,5 +42,5 @@ jobs:
         cp .env.example .env
         php artisan key:generate
  
-    - name: Run Testsuite
-      run: vendor/bin/phpunit tests/
+    - name: Run Test suite
+      run: php artisan test
