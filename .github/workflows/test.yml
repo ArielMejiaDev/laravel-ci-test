@@ -1,11 +1,11 @@
 name: Test
-  on:
-    pull_requests:
-      branches:
-        - master
-    push:
-      branches:
-        - master
+on:
+  pull_requests:
+    branches:
+      - master
+  push:
+    branches:
+      - master
 
 jobs:
   tests:
