@@ -61,9 +61,9 @@ jobs:
     - name: Run Cypress tests
       uses: cypress-io/github-action@v5.3.0
       with:
-        wait-on: http://localhost:8080
+        wait-on: http://127.0.0.1
         wait-on-timeout: 180
-        start: npx cypress run --headless --config baseUrl=http://localhost:8080
+        start: npx cypress run --headless --config baseUrl=http://127.0.0.1
     
     - name: Upload artifacts
       uses: actions/upload-artifact@master
